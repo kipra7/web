@@ -1,12 +1,26 @@
 ---
-title: My page
+title: Home
 layout: default
 ---
 
 ## {{ page.title }}
 
-Content is written in [Markdown](https://learnxinyminutes.com/docs/markdown/). Plain text format allows you to focus on your **content**.
+どうもこんにちは。私です。
 
-<!--
-You can use HTML elements in Markdown, such as the comment element, and they won't be affected by a markdown parser. However, if you create an HTML element in your markdown file, you cannot use markdown syntax within that element's contents.
--->
+Twitterの鍵垢はどうにも下品になってしまってダメでした。当サイトは、そのほとんどの機能を移植するために、GitHub Pagesで作成した試作品です。
+
+稼働開始時期は未定。
+
+## コンテンツ一覧
+### 科学論雑誌会
+科学史趣味界隈向けの論文や読書のメモ。科学史以外のネタも雑多に扱う予定ですが、予定は未定です。
+
+#### おすすめ記事一覧
+
+### キプラのけものーと
+ケモノ文化に関する論文等の読書記録だけを取り出したもの。不定期更新。
+
+#### おすすめ記事一覧
+
+### 月報
+進捗の月次報告をする可能性がある。なにもないもありうる。本業で嫌なことがあったらサボる。
