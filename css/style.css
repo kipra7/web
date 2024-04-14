@@ -952,7 +952,7 @@ form p {
 }
 
 /* 画面幅が768px以上の場合に適用するスタイル */
-@media screen and (min-width: 7680px) {
+@media screen and (min-width: 768px) {
     #responsive-image {
         width: 330px;
     }
