@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no,email=no,address=no">
+    <meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <title>Home｜Phlogiston Lab.</title>
+</head>
+
+<body>
+<div id="top"><a href="#"></a></div>
+<header class="center">
+    <h1>Phlogiston Lab.</h1>
+    <p>プログラミング関係の実装メモ置き場やその他諸々</p>
+</header>
+<nav class="center">
+    <p>
+        <a href="">HOME</a>
+        <a href="">リンク</a>
+        <a href="">リンク</a>
+        <a href="">リンク</a>
+        <a href="">リンク</a>
+    </p>
+</nav>
+<div class="wrap">
+  {{ content }}
+</div>
+<footer class="center">
+  <div id="pagetop" hidden>
+    <img src="kotweb/kotweb001.png" width="320px">
+  </div>
+        プララのコーヒーハウス <br>
+        Template by <a href="https://asteroid19.netlify.app/">Asteroid</a>
+    </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll('a[href^="#"]');
+  links.forEach(function(link) {
+    link.addEventListener("click", function(event) {
+      event.preventDefault();
+      // nav の高さ + 30px の幅をつくる
+      // nav を使わない場合は「const navHeight = 30;」などにする。navを取得しない。
+      const navHeight = document.querySelector("nav").offsetHeight + 20;
+      const href = this.getAttribute("href");
+      const target = href === "#" || href === "" ? document.documentElement : document.querySelector(href);
+      const position = target.offsetTop - navHeight;
+
+      // ページ内リンクで履歴を残したいときのコード。履歴を残したくないときは削除する。
+      if (href !== "#" && href !== "") {
+        window.history.pushState({}, "", href); // URLを変更せずに履歴に追加
+      }
+      // ページ内リンクで履歴を残したいときのコードはここまで
+
+      // スムーススクロール
+      window.scrollTo({
+        top: position,
+        behavior: "smooth"
+      });
+    });
+  });
+
+  // TOPへ戻るボタン。最初は非表示で、100pxスクロールしたら出現する
+  //const topBtn = document.getElementById("top");
+  //topBtn.style.display = "none";
+
+  window.addEventListener("scroll", function() {
+    if (window.pageYOffset > 60) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  });
+});
+
+$(function(){
+  var topBtn=$('#pagetop');
+  topBtn.hide();
+ 
+  //ボタンの表示設定
+  $(window).scroll(function(){
+    if($(this).scrollTop()>250){
+      //---- 画面を800pxスクロールしたら、ボタンを表示する
+      topBtn.fadeIn();
+    }else{
+      //---- 画面が800pxより上なら、ボタンを表示しない
+      topBtn.fadeOut();
+    } 
+  });
+ 
+  //ボタンをクリックしたら、スクロールして上に戻る
+  topBtn.click(function(){
+    $('body,html').animate({
+    scrollTop: 0},500);
+    return false;
+  });
+});
+
+/* nav にクラスを付与するscript */
+window.addEventListener("scroll", function() {
+  const e = document.querySelector("nav");
+  const s = document.querySelector("header");
+
+  if (window.scrollY > s.offsetHeight) {
+    e.classList.add("fix-nav");
+  } else {
+    e.classList.remove("fix-nav");
+  }
+});
+</script>
+
+<script>
+  // コピーボタン作成用コード
+  (function(d){
+    const pre = d.querySelectorAll('pre');
+    if(pre.length == 0){
+      return
+    }
+    for(let i = 0; i < pre.length; i++){
+      const btn = d.createElement('button');
+      btn.className = 'copy-button';
+      btn.textContent = 'Copy';
+      pre[i].insertBefore(btn, pre[i].firstElementChild);
+      btn.addEventListener('click', copy_code, false)
+    }
+  })(document);
+  // コピー機能用コード
+  function copy_code(){
+  const code = this.nextElementSibling.innerText;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(code).then(() => {
+      this.textContent = 'Copied!!!';
+      setTimeout(() => {
+        this.textContent = 'Copy'
+      }, 500)
+    }).catch(e => {
+      alert('コピーできませんでした\nお手数ですが手動でコピーしてください\n\n' + e.message)
+    })
+  } else{
+    alert('このブラウザは Clipboard API 非対応です\nお手数ですが手動でコピーしてください')
+  }
+}
+</script>
+</body>
