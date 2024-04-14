@@ -947,6 +947,24 @@ form p {
 }
 
 
+/* コトブキの画像 */
+#responsive-image {
+    width: 230px;
+}
+
+/* 画面幅が768px以上の場合に適用するスタイル */
+@media screen and (min-width: 768px) {
+    #responsive-image {
+        width: 320px;
+    }
+}
+@media screen and (min-width: 2000px) {
+    #responsive-image {
+        width: 450px;
+    }
+}
+
+
 /* フッター */
 footer {
     color: var(--white);
