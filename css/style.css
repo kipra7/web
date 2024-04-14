@@ -946,16 +946,15 @@ form p {
     width: var(--height);
 }
 
-
 /* コトブキの画像 */
 #responsive-image {
-    width: 230px;
+    width: 235px;
 }
 
 /* 画面幅が768px以上の場合に適用するスタイル */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 7680px) {
     #responsive-image {
-        width: 320px;
+        width: 330px;
     }
 }
 
